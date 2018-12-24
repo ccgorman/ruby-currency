@@ -18,25 +18,25 @@ class CurrencyExchangeTest < Test::Unit::TestCase
   end
 
   def test_validate_input_from_currency_fails_as_number
-    assert_raise_message("The from currency not valid") do
+    assert_raise_message("The from currency is not valid") do
       CurrencyExchange.rate(Date.new(2018,11,22), 123, "USD")
     end
   end
 
   def test_validate_input_to_currency_fails_as_number
-    assert_raise_message("The to currency not valid") do
+    assert_raise_message("The to currency is not valid") do
       CurrencyExchange.rate(Date.new(2018,11,22), "USD", 123)
     end
   end
 
   def test_validate_input_from_currency_fails_as_two_chars
-    assert_raise_message("The from currency not valid") do
+    assert_raise_message("The from currency is not valid") do
       CurrencyExchange.rate(Date.new(2018,11,22), "US", "USD")
     end
   end
 
   def test_validate_input_to_currency_fails_as_four_chars
-    assert_raise_message("The to currency not valid") do
+    assert_raise_message("The to currency is not valid") do
       CurrencyExchange.rate(Date.new(2018,11,22), "USD", "USof")
     end
   end
